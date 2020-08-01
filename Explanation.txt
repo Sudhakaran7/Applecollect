@@ -1,0 +1,87 @@
+You are in a matrix maze, where in every cell there is a apple,
+you have to start by (0.0) and reach (N-1,N-1), and then you have to reach back to (0,0) each cell is one of three possible integers.
+0 means the cell is empty, so you can pass through;
+1 means the cell contains a apple, that you can pick up and pass through;
+-1 means the cell contains a bomb that blocks your way.
+You should collect maximum number of apples with following condition:
+Starting at the position (0, 0) and reaching (N-1, N-1) by moving right or down through valid path cells (cells with value 0 or 1);
+After reaching (N-1, N-1), returning to (0, 0) by moving left or up through valid path cells;
+When passing through a path cell containing a apple, you pick it up and the cell becomes an empty cell (0);
+If there is no valid path between (0, 0) and (N-1, N-1), then no apples can be collected.
+
+Input Description:
+R and C denotes rows and coloumns in next line,
+elements for matrix in a single line seperated by space
+
+Output Description:
+The maximum number of apples collected and final matrix
+
+Sample Input:
+3 3
+0 1 -1 1 1 1 0 1 0
+
+Saample Output:
+5
+[[ 0  1 -1]
+ [ 0  0  1]
+ [ 0  0  0]]
+ 
+Explanation:
+[[ 0  1 -1]
+ [ 1  1  1]
+ [ 0  1  0]] is the given matrix
+Initially, you will start from 0,0 either you can go at right or down, so if u go by right,don,down,right you can reach the N-1,N-1 you'll collect 3 apples
+then from N-1,N-1 you have to go to 0,0 for that up,left,left,left,up so you'll collet another 2 apples
+the ultimate aim is to collect maximum apples so you have to travese in that path so 2+3 is 5
+output is 5
+
+Sample Input:
+2 2
+0 1 1 1
+
+Sample Output:
+3
+[[0 1]
+ [0 0]]
+
+Sample Input:
+4 4
+0 -1 1 1 -1 1 1 1 0 0 1 1 -1 1 0 1
+
+Sample Output:
+0
+[[ 0 -1  1  1]
+ [-1  1  1  1]
+ [ 0  0  1  1]
+ [-1  1  0  1]]
+ 
+Sample Input:
+3 4
+0 -1 1 1 1 1 0 0 -1 1 1 1
+
+Sample Output:
+4
+[[ 0 -1  1  1]
+ [ 0  0  0  0]
+ [-1  0  0  1]]
+ 
+Sample Input:
+5 5
+0 1 1 -1 1 0 0 0 1 1 1 1 -1 -1 0 0 1 0 1 1 1 1 -1 0 0
+
+Sample Output:
+9
+[[ 0  1  1 -1  1]
+ [ 0  0  0  1  1]
+ [ 0  0 -1 -1  0]
+ [ 0  0  0  0  0]
+ [ 1  1 -1  0  0]]
+ 
+Sample Input:
+2 5
+0 1 1 -1 1 -1 1 1 0 0
+
+Sample Output:
+2
+[[ 0  0  1 -1  1]
+ [-1  0  1  0  0]]
